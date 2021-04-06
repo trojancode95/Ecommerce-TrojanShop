@@ -5,7 +5,7 @@ Live Demo can be viewed at **https://trojanshop.herokuapp.com/**
 This project is from my Django + React collaboration wih Brad Traversy. Full Course: https://www.udemy.com/course/django-with-react-an-ecommerce-website/?couponCode=387F19CD4087385E87C1
 
 
-![DEMO](/main/static/images/trojanshop_demo.png)
+![DEMO](https://raw.githubusercontent.com/trojancode95/Ecommerce-TrojanShop/main/static/images/trojanshop_demo.png)
 
 
 # Features
