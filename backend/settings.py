@@ -10,10 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+from pathlib import Path
+from datetime import timedelta
 import django_heroku
 import os
-from datetime import timedelta
-from pathlib import Path
+import cloudinary_storage
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+# export CLOUDINARY_URL = cloudinary: // 961949618321311: OwLMx6qvHdnBDZSywTWdc2cQrpI@trojanshop
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,7 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    # 'cloudinary'
     'rest_framework',
     'corsheaders',
     'base.apps.BaseConfig',
@@ -166,6 +174,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'trojanshop',
+    'API_KEY': '961949618321311',
+    'API_SECRET': 'OwLMx6qvHdnBDZSywTWdc2cQrpI'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
     BASE_DIR / 'frontend/build/static',
@@ -186,3 +202,9 @@ CORS_ALLOW_ALL_ORIGINS = True
 # AWS_S3_HOST = config('AWS_S3_HOST')
 
 django_heroku.settings(locals())
+
+# cloudinary.config(
+#     cloud_name="trojanshop",
+#     api_key="961949618321311",
+#     api_secret="OwLMx6qvHdnBDZSywTWdc2cQrpI"
+# )
